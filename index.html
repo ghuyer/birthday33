@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // https://dashboard.emailjs.com/admin/account
+      emailjs.init({
+        publicKey: "nZ5K7bzDQOZL0xNlo",
+      });
+    })();
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Courier+Prime:regular,italic,700,700italic" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer>
+  </script>
+  <title>Aniversário do Guimas</title>
+</head>
+
+<body>
+
+  <div id="start-area">
+    <div id="startOne" class="fade-element">
+
+      <p>Olá, para começar, selecione seu nome ou agremiação</p>
+
+      <select name="convidados" class="select2" style="width: 400px;" id="convidados">
+        <option value=""></option>
+        <option value="André">André</option>
+        <option value="Augusto">Augusto</option>
+        <option value="Maza e Lu" class="casal">Casal LuZa</option>
+        <option value="Jessika & Lucas" class="casal">Casal Jessika & Lucas</option>
+        <option value="Júlia e Jonas" class="casal">Casal JuJo</option>
+        <option value="Felipe e Karen" class="casal">Casal Karipe</option>
+        <option value="Gustavo">Gustavo</option>
+        <option value="Márcio">Márcio</option>
+        <option value="Rafael">Rafael</option>
+        <option value="Vinícius">Vinícius</option>
+      </select>
+    </div>
+
+    <div id="startTwo" class="fade-element">
+      <p id="sozinhoOuAcompanhado">Confirme se irá sozinho ou acompanhado </p>
+      <div class="hans">
+        <button id="hansolo">Han <span>Solo</span></button>
+        <button id="hanandleia">Han & Leia</button>
+      </div>
+    </div>
+
+    <div id="starter" class="fade-element">
+      <p>Clique no botão para começar</p>
+      <button id="startButton">
+        <img src="button.png" alt="Botão">
+      </button>
+    </div>
+  </div>
+
+  <div class="main fade-element">
+
+
+    <div class="headers">
+      <h3>Convite para o...</h3>
+      <h1> Aniversário do maior fã de Christopher Nolan que você conhece</h1>
+      <img src="paul-riding.jpg" alt="Paul Atreides cavalgando no Shai-hulud" id="paulAtreides" class="moving-image"
+        data-audio="sounds/lisan-al-gaib.mp3">
+    </div>
+
+
+    <div class="grid-container">
+      <!-- Row 1: Images 1, 2, 3 -->
+
+      <img src="Oppie.jpg" alt="Oppenheimer" class="image image1" data-audio="sounds/oppenheimer-sound.mp3"
+        data-alt-src="jacks/jack-dad.gif" data-original-src="Oppie.jpg">
+
+      <img src="Nolan movies.jpg" alt="Christopher Nolan and his movies" class="image image2"
+        data-audio="sounds/nolan-movies.mp3" data-alt-src="jacks/jack-running.gif" data-original-src="Nolan movies.jpg">
+
+      <img src="Nolan Oscar.jpg" alt="Christopher Nolan Oscar Winner" class="image image3"
+        data-audio="sounds/nolan-oscar.mp3" data-alt-src="jacks/davy-jones.gif" data-original-src="Nolan Oscar.jpg">
+
+      <!-- Row 2: Image 4, Text Area, Image 5 -->
+      <img src="Hans Zimmer.jpg" alt="Hans Zimmer" class="image image4" data-audio="sounds/batman-theme.mp3" data-alt-src="jacks/jack-cat.gif"
+        data-original-src="Hans Zimmer.jpg">
+
+      <div class="text-content">
+        <h1><span id="nomeDoConvidado" class="hidden">nome do convidado</span>!</h1>
+        <div class="welcome">
+          <p> <span id="bemVindo">Seja bem-vindo</span> ao meu
+            humilde site de
+            convite de aniversário feito em casa. <span id="estaConvidado">Estás convidadíssimo</span>
+            para a celebração da chegada deste que vos fala à idade de algarismo 33. Abaixo seguem
+            as
+            informações mais objetivas do evento. <span id="passe">Passe</span> o mouse sobre as imagens para efeitos
+            divertidos e inúteis
+            que
+            deram
+            muito trabalho para fazer :]</p>
+        </div>
+      </div>
+      <div class="image5">
+
+        <img src="Villeneuve pointing.jpg" alt="Denis Villeneuve" id="villeneuve" class="image"
+          data-audio="sounds/dune-scream.mp3" data-alt-src="jacks/barbossa.gif"
+          data-original-src="Villeneuve pointing.jpg" onmouseenter="shaiHulud()">
+        <p id="muadibText" class="hidden">Tente clicar no Muad'Dib!</p>
+      </div>
+
+      <!-- Row 3: Image 6, Text Area, Image 7 -->
+      <img src="pirates2.jpg" alt="Pirates of the Caribbean" class="image image6" data-audio="sounds/pirates-theme.mp3"
+        data-alt-src="jacks/elizabeth.gif" data-original-src="pirates2.jpg">
+
+      <div class="text-content">
+        <div class="info">
+          <div class="day">
+            <h4>DIA</h4>
+            <p>26 de Outubro, sábado.</p>
+          </div>
+          <div class="time">
+            <h4>HORÁRIO</h4>
+            <p>A partir das 17h</p>
+          </div>
+          <div class="place">
+            <h4>LOCAL</h4>
+            <p>Casa dos meus mais</p>
+            <p> <a href="https://maps.app.goo.gl/TW8YTEeRNDcA4for9">Travessa Pedra Redonda, 55</a></p>
+          </div>
+          <div class="food">
+            <h4>COMIDA</h4>
+            <p>Por volta das 20h, teremos pizzas da Sálvia Forneria (ex-Sálvia Pizza, ex-Taberna Bandeirantes).</p>
+            <p>Para decidir os sabores, preciso da SUA AJUDA!</p>
+            <p>Identifique sua categoria gastronômica antes de prosseguir:</p>
+            <div class="eaterType">
+              <button type="button" id="buttonTodos">Tudo em Todo Lugar ao Mesmo Tempo</button>
+              <button type="button" id="buttonVeggies">"Animais são amigos e não comida"</button>
+            </div>
+            <form id="form" class="hidden">
+              <p> <span id="quantidadeDeSabores">Escolha até três</span> sabores:</p>
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="abobrinha">
+                Abobrinha
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="berinjela">
+                Berinjela
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="brocolis">
+                Brócolis
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="cabral">
+                Cabral (linguiça picante, cebola caramelizada e gorgonzola)
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="caprese">
+                Caprese (tomate, mussarela de búfala, pasta de azeitona, manjericão)
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="cebola_na_manteiga">
+                Cebola na manteiga
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="cinco_queijos">
+                Cinco queijos
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="cinco_queijos_alho_oleo">
+                Cinco queijos c/alho e óleo
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="coracao">
+                Coração
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="di_parma">
+                Di Parma (presunto parma, tomate, ricota e manjericão)
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="file_com_rucula">
+                Filé com rúcula
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="frango_catupiry">
+                Frango c/ catupiry
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="lombo">
+                Lombo
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="lombo_abacaxi">
+                Lombo c/ abacaxi
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="milho">
+                Milho
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="milho_bacon">
+                Milho e bacon
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="napolitana">
+                Napolitana (tomates pelados e manjericão)
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="palmito">
+                Palmito
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="pepperoni">
+                Pepperoni
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="pesto">
+                Pesto
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="portuguesa">
+                Portuguesa
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="predileta">
+                Predileta (presunto parma, tomate, nozes, alface)
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="romanesca">
+                Romanesca (presunto, champignon e azeitonas)
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="Sálvia">
+                Sálvia (mix de cogumelos refogados no vinho branco, sálvia, parmesão)
+              </label>
+
+              <label>
+                <input type="checkbox" name="sabor" value="strogonoff">
+                Strogonoff
+              </label>
+
+              <label class="vegetarian">
+                <input type="checkbox" name="sabor" class="vegetarian" value="tomate_seco">
+                Tomate seco
+              </label>
+
+              <input id="submit" type="submit" value="Enviar">
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <img src="Tom Cruise.jpg" alt="Tom Cruise" class="image image7" data-audio="sounds/imf-theme.mp3"
+        data-alt-src="jacks/will-turner.gif" data-original-src="Tom Cruise.jpg">
+
+
+    </div>
+
+  </div>
+
+  <div id="darkPopup" class="popup">
+    <img id="batman" src="batman-flying.gif" alt="batman">
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <img src="ethan-hunt.gif" alt="Tom Cruise pulando do avião">
+      <p>Sabores enviados com sucesso!</p>
+      <button id="finalButton">Ok!</button>
+    </div>
+  </div>
+
+  <!-- <div class="audios">
+    <audio id="myAudio" controls>
+      <source src="sounds/oppenheimer-sound.mp3" type="audio/mpeg">
+    </audio> 
+     <audio id="myAudioTwo" controls>
+      <source src="sounds/nolan-movies.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="myAudioThree" controls>
+      <source src="sounds/nolan-oscar.mp3" type="audio/mpeg">
+    </audio> 
+     <audio id="myAudioFour" controls>
+      <source src="sounds" type="audio/mpeg">
+    </audio> 
+     <audio id="myAudioFive" controls>
+      <source src="sounds/dune-scream.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="myAudioSix" controls>
+      <source src="sounds" type="audio/mpeg">
+    </audio>
+    <audio id="myAudioSeven" controls>
+      <source src="sounds" type="audio/mpeg">
+    </audio>
+    <audio id="myAudioEight" controls>
+      <source src="sounds/lisan-al-gaib.mp3" type="audio/mpeg">
+    </audio>
+  </div>  -->
+
+
+
+
+</body>
+
+</html>
